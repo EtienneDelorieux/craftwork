@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+require "nokogiri"
+
+puts "Creating categories..."
+
+html_content = open('https://fr.wikipedia.org/wiki/M%C3%A9tiers_du_b%C3%A2timent#Fumisterie').read
+doc = Nokogiri::HTML(html_content)
+
+doc.search('dt').each_with_index do |element, index|
+  Category.create!(name: element.text.strip)
+end
+
+Category.create!(name: "Isolation")
+Category.create!(name: "Plomberie")
+Category.create!(name: "Electricité")
+Category.create!(name: "Isolation")
