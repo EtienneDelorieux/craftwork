@@ -5,6 +5,10 @@
     <%= link_to(project_path(project)) do %>
       <div class="card">
         <h2><%= project.title %></h2>
+        <p>
+          <%= link_to "Edit this project", edit_project_path(project.id) %> |
+          <%= link_to "Delete this project", project_path(project.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
       </div>
     <% end %>
 <% end %>
