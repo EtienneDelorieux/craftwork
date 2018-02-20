@@ -25,10 +25,7 @@ puts "Creating users..."
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
-    city: Faker::Address.city,
-    address: Faker::Address.street_address,
-    zip: (01000..99999).to_a.sample
+    lastname: Faker::Name.last_name
   )
 end
 
@@ -38,14 +35,9 @@ puts "Creating projects..."
     title: Faker::Hipster.sentence,
     content: Faker::Hipster.paragraph,
     city: Faker::Address.city,
-    department: (0..99).to_a.sample,
-    category_id: ((Category.first.id)..Category.last.id).to_a.sample,
+    category_id: ((Category.first.id)..(Category.last.id)).to_a.sample,
     user_id: ((User.first.id)..(User.last.id)).to_a.sample
   )
 end
 
-User.create(email: alexandre.b2506@gmail.com, password: rudy0234)
-
-
-User.create!({:email => "alexandre.b2506@gmail.com", :password => "rudy0234", :password_confirmation => "rudy0234", firstname: "alex", lastname: "Bouvier", city: "Paname", address: "rue de courcelles", zip: "75008" })
-
+User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})

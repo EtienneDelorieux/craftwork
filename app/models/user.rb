@@ -10,7 +10,4 @@ class User < ApplicationRecord
 
   validates :lastname, presence: true
   validates :firstname, presence: true
-  validates :city, presence: true
-  validates :address, presence: true
-  validates :zip, presence: true, length: { is: 5 }, numericality: { only_integer: true }
 end
