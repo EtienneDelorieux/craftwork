@@ -1,2 +1,10 @@
-<h1>Projects#index</h1>
+<h1>View all our projects</h1>
 <p>Find me in app/views/projects/index.html.erb</p>
+
+<ul>
+  <% @projects.each do |project| %>
+    <div class="card">
+      <li> <%= link_to project.title, project_path(project) %></li>
+    </div>
+  <% end %>
+</ul>
