@@ -46,15 +46,4 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :content, :category_id, :city)
   end
-
-private
-
-  def set_project
-    @project = Project.find(params[:id])
-  end
-
-  def project_params
-    params.require(:project).permit(:title, :content, :city)
-  end
-
 end
