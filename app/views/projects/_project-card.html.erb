@@ -1,0 +1,6 @@
+<%= link_to(project_path(project), class: "project__card") do %>
+  <h2 class="project__name"><%= project.title %></h2>
+  <p><%= "#{project.user.firstname} #{project.user.lastname}" %></p>
+  <p><%= project.city %></p>
+  <p><%= project.category.name %></p>
+<% end %>
