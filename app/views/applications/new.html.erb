@@ -3,3 +3,12 @@
 <p><%= @project.content %></p>
 <p><%= @project.city %></p>
 <p><%= @project.user.firstname %></p>
+
+<%= simple_form_for [@project, @application] do |f| %>
+
+  <%= f.input :quote %>
+  <%= f.input :estimated_duration %>
+  <%= f.input :comment %>
+  <%= f.input :start_date %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

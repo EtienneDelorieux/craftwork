@@ -8,20 +8,29 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    @application = Application.new(application_params)
+    @project = Project.find(params[:project_id])
+    @application.project = @project
+    @application.user = current_user
+    if @application.save
+      redirect_to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def application_params
-    params.require(:application).permit(:quote, :comment, :estimated_duration, :selected)
+    params
+      .require(:application)
+      .permit(
+        :quote,
+        :comment,
+        :estimated_duration,
+        :selected,
+        :application_id,
+        :project_id
+      )
   end
-
 end
+
+
