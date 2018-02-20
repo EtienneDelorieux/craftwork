@@ -1,2 +1,14 @@
-<h1>Applications#new</h1>
-<p>Find me in app/views/applications/new.html.erb</p>
+<h1>Submit your application</h1>
+<p><%= @project.title%></p>
+<p><%= @project.content %></p>
+<p><%= @project.city %></p>
+<p><%= @project.user.firstname %></p>
+
+<%= simple_form_for [@project, @application] do |f| %>
+
+  <%= f.input :quote %>
+  <%= f.input :estimated_duration %>
+  <%= f.input :comment %>
+  <%= f.input :start_date %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
