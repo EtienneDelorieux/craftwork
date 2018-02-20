@@ -39,3 +39,5 @@ puts "Creating projects..."
     user_id: ((User.first.id)..(User.last.id)).to_a.sample
   )
 end
+
+User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
