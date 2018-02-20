@@ -1,9 +1,9 @@
 require "open-uri"
 require "nokogiri"
 
-Category.destroy_all
 User.destroy_all
-Projects.destroy_all
+Project.destroy_all
+Category.destroy_all
 
 puts "Creating categories..."
 
@@ -25,10 +25,7 @@ puts "Creating users..."
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     firstname: Faker::Name.first_name,
-    lastname: Faker::Name.last_name,
-    city: Faker::Address.city,
-    address: Faker::Address.street_address,
-    zip: (01000..99999).to_a.sample
+    lastname: Faker::Name.last_name
   )
 end
 
@@ -38,8 +35,7 @@ puts "Creating projects..."
     title: Faker::Hipster.sentence,
     content: Faker::Hipster.paragraph,
     city: Faker::Address.city,
-    department: (0..99).to_a.sample,
-    category_id: ((Category.first.id)..Category.count).to_a.sample,
+    category_id: ((Category.first.id)..(Category.last.id)).to_a.sample,
     user_id: ((User.first.id)..(User.last.id)).to_a.sample
   )
 end
