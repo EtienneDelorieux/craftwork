@@ -3,9 +3,12 @@ class ApplicationsController < ApplicationController
   end
 
   def new
+    @project = Project.find(params[:project_id])
+    @application = Application.new
   end
 
   def create
+
   end
 
   def edit
@@ -16,4 +19,9 @@ class ApplicationsController < ApplicationController
 
   def destroy
   end
+
+  def application_params
+    params.require(:application).permit(:quote, :comment, :estimated_duration, :selected)
+  end
+
 end

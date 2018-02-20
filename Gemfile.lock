@@ -41,6 +41,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (8.0.0)
       execjs
+    awesome_print (1.8.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-sass (3.3.7)
@@ -189,6 +190,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  awesome_print
   bootstrap-sass
   devise
   faker
