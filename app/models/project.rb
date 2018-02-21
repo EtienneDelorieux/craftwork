@@ -7,4 +7,6 @@ class Project < ApplicationRecord
   validates :content, presence: true
   validates :category, presence: true
   validates :city, presence: true
+
+  mount_uploader :photo, PhotoUploader
 end
