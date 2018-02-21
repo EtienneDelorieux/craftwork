@@ -19,6 +19,14 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def select
+    @application = Application.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @application.selected = true
+    @application.save
+    redirect_to project_path(@project)
+  end
+
   def application_params
     params
       .require(:application)
@@ -31,6 +39,7 @@ class ApplicationsController < ApplicationController
         :project_id
       )
   end
+
 end
 
 

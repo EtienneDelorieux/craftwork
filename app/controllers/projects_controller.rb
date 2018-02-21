@@ -21,6 +21,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @applications = Application.where(project_id: @project.id).where(selected: true)
+    if @applications.empty?
+      @applications = Application.where(project_id: @project.id)
+    end
   end
 
   def edit

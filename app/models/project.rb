@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :applications
 
   validates :title, presence: true
   validates :content, presence: true
