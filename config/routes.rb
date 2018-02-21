@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :projects do
+  resources :projects, :except => [:index] do
     resources :applications, :except => [:show]
   end
 end

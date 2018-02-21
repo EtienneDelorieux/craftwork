@@ -2,12 +2,12 @@
   display: block;
   border-radius: $border-radius;
   margin-bottom: 30px;
-  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
 
   &:hover {
     color: $dark;
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.15);
 
     .project__card__filter {
       transition: all 0.2s;
@@ -28,14 +28,13 @@
   background-position: center center;
 }
 
-h2.project__card__title {
-  font-size: 1.7rem;
-  margin-bottom: 10px;
+.project__card__content {
+  z-index: 10;
 }
 
-h2.project__card__title,
-.project__card__user {
-  z-index: 10;
+h2.project__card__title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
 }
 
 .project__card__user img {
@@ -45,9 +44,19 @@ h2.project__card__title,
 }
 
 .project__card__footer {
+  color: $dark;
   background-color: #fff;
-  height: 50px;
+  padding: 25px;
   border-radius: 0 0 3px 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+
+  i {
+    margin-right: 5px;
+    color: $primary-color;
+  }
 }
 
 .project__card__city,
