@@ -21,10 +21,10 @@ class ApplicationsController < ApplicationController
 
   def select
     @application = Application.find(params[:id])
-    @project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project_id])
     @application.selected = true
     @application.save
-    redirect_to project_path(@project)
+    redirect_to project_path(@application.project)
   end
 
   def application_params
@@ -36,7 +36,8 @@ class ApplicationsController < ApplicationController
         :estimated_duration,
         :selected,
         :application_id,
-        :project_id
+        :project_id,
+        :start_date
       )
   end
 
