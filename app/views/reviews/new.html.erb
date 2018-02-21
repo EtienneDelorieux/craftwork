@@ -2,7 +2,7 @@
 <br>
 <p>Add a rating and a content to evaluate this merchant</p>
 
-<%= simple_form_for(@review) do |f| %>
+<%= simple_form_for([@project, @review]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

@@ -1,9 +1,11 @@
 require "open-uri"
 require "nokogiri"
 
-User.destroy_all
+Review.destroy_all
+Application.destroy_all
 Project.destroy_all
 Category.destroy_all
+User.destroy_all
 
 puts "Creating categories..."
 
@@ -41,3 +43,16 @@ puts "Creating projects..."
 end
 
 User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
+
+
+
+  Application.create!(
+    quote: (100..1000).to_a.sample,
+    estimated_duration: (100..1000).to_a.sample,
+    start_date: Date.today,
+    comment: Faker::Hipster.paragraph,
+    user_id: ((User.first.id)..(User.last.id)).to_a.sample,
+    project_id: ((Project.first.id)..(Project.last.id)).to_a.sample,
+    selected: true
+  )
+
