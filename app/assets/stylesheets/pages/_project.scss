@@ -1,0 +1,71 @@
+.project__banner {
+  display: block;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1.project__title {
+  font-size: 3rem;
+}
+
+.project__actions {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+
+  .btn {
+    color: $dark;
+    background-color: rgba(255, 255, 255, 0.85);
+    margin-left: 15px;
+
+    i {
+      color: $dark;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.project__details {
+  background-color: #fff;
+  padding: 15px 0;
+}
+
+.project__details .row,
+.project__details .col-lg-10 {
+  display: flex;
+  align-items: center;
+}
+
+.project__details__creator,
+.project__details__category {
+  margin-right: 50px;
+}
+
+.project__details__creator .avatar {
+  margin-right: 10px;
+  width: 30px;
+}
+
+.project__details__category,
+.project__details__city {
+  text-transform: uppercase;
+
+  i {
+    margin-right: 5px;
+    color: $secondary-color;
+  }
+}
+
+.project__details .btn {
+  width: 100%;
+}

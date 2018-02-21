@@ -38,8 +38,6 @@ h2.project__card__title {
 }
 
 .project__card__user img {
-  width: 30px;
-  border-radius: 100px;
   margin-right: 10px;
 }
 
@@ -54,22 +52,9 @@ h2.project__card__title {
   text-transform: uppercase;
 
   i {
+    color: $secondary-color;
     margin-right: 5px;
-    color: $primary-color;
   }
-}
-
-.project__card__city,
-.project__card__category {
-
-}
-
-.project__card__city {
-
-}
-
-.project__card__category {
-
 }
 
 .project__card__filter {

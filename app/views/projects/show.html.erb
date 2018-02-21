@@ -1,12 +1,49 @@
-<h1><%= @project.title%></h1>
-<p><%= @project.content %></p>
-<p><%= @project.city %></p>
-<p><%= @project.user.firstname %></p>
+<div class="banner project__banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= project_image_path_for(@project) %>)">
+  <div class="container">
+    <h1 class="project__title"><%= @project.title %></h1>
+  </div>
+  <div class="project__actions">
+    <%= link_to(edit_project_path(@project), class: "btn btn--secondary") do %>
+      <%= icon('fas', 'edit') %>Edit
+    <% end %>
+    <%= link_to(project_path(@project), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn--secondary") do %>
+      <%= icon('fas', 'trash') %>Delete
+    <% end %>
+  </div>
+</div>
 
+<section class="project__details">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <span class="project__details__creator">
+          <%= image_tag "http://kitt.lewagon.com/placeholder/users/alexandrebk", class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= "#{@project.user.firstname.capitalize} #{@project.user.lastname}" %>
+        </span>
+        <span class="project__details__category"><%= icon('fas', 'tag') %><%= @project.category.name %></span>
+        <span class="project__details__city"><%= icon('fas', 'map-marker-alt') %><%= @project.city %></span>
+      </div>
+      <div class="col-lg-2">
+        <%= link_to(new_project_application_path(@project), class: "btn btn--secondary") do %>
+          <%= icon('fas', 'pencil-alt') %>Apply
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 
-<%= link_to 'Apply', new_project_application_path(@project) %>
+<section class="project__body">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <p><%= @project.content %></p>
+      </div>
+      <div class="col-lg-2">
 
-
+      </div>
+    </div>
+  </div>
+</section>
 
 <% @applications.each do |application| %>
   <div class="card">
@@ -33,5 +70,3 @@
     <% end %>
   </div>
 <% end %>
-
-
