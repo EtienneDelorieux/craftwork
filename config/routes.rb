@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :projects do
     resources :applications, :except => [:show]
   end
+
+  get 'applications/:id/:project_id', to: 'applications#select', as: :select_application
 end
