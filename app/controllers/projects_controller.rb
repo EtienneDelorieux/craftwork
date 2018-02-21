@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
 
   def show
     @user = @project.user
+    @review = Review.where(creator_id: @user).first
   end
 
   def edit

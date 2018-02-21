@@ -3,7 +3,22 @@
 <p><%= @project.city %></p>
 <p><%= @project.user.firstname %></p>
 <!-- if selected is true, user can add a review via a button else no button -->
-<%= link_to 'Add a review', new_project_review_path(@project) %>
-<%= link_to 'Apply', new_project_application_path(@project) %>
 
+<div>
+  <% if current_user != @user %>
+    <%= link_to 'Apply', new_project_application_path(@project) %>
+  <% elsif current_user == @user %>
+    <%= link_to 'Add a review', new_project_review_path(@project) %>
+  <% end %>
 
+</div>
+
+<div>
+  <% if @review != nil %>
+    <br>
+    <h2>You added a review</h2>
+    <br>
+    <p><%= @review.content %></p>
+    <p><%= @review.destinator.firstname %></p>
+  <% end %>
+</div>

@@ -1,2 +1,18 @@
-<h1></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>My profile</h1>
+<br>
+<h2>My informations</h2>
+<div>
+  <p><%= @user.firstname %></p>
+  <p><%= @user.lastname %></p>
+  <p><%= @user.resume %></p>
+</div>
+
+<br>
+
+<h2>Evaluations</h2>
+
+<br>
+
+<p>
+  <%= @review.content %>
+</p>
