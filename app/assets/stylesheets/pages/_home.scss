@@ -1,1 +1,47 @@
-// Specific CSS for your home-page
+.banner--home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), asset-url("background-home.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.banner--home .container {
+  height: calc(100vh - 80px);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.banner--home h1 {
+  font-size: 5rem;
+}
+
+.banner--home p {
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.banner--home__line {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  bottom: 0;
+  left: calc(50% - 1px);
+  background-color: #fff;
+}
+
+// Projects card height fix
+@media (min-width: 1200px) {
+  .row > .col-lg-6:nth-child(2n+1) {
+    clear: left;
+  }
+}
+
+@media (max-width: 992px) {
+  .row > .col-lg-6:nth-child(2n+1) {
+    clear: left;
+  }
+}

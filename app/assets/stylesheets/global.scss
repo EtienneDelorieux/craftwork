@@ -1,0 +1,46 @@
+*,
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 16px;
+}
+
+body {
+  color: $dark;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 50px;
+}
+
+a {
+  color: $primary-color;
+  transition: $transition;
+
+  &:hover {
+    color: adjust-color($primary-color, $saturation: 10, $lightness: 5);
+    text-decoration: none;
+  }
+}
+
+section {
+  padding: 50px 0;
+}

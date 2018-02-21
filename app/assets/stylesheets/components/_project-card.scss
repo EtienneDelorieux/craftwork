@@ -1,0 +1,20 @@
+.project__card {
+  display: block;
+  min-height: 180px;
+  color: $dark;
+  background-color: #fff;
+  border-radius: $border-radius;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    color: $dark;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.project__card h2 {
+  font-size: 1.35rem;
+}
