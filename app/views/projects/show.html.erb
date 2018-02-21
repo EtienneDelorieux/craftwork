@@ -7,27 +7,31 @@
 <%= link_to 'Apply', new_project_application_path(@project) %>
 
 
-<div class="card">
-  <% @applications.each do |application| %>
-  <h2>
-    Name: <%= application.user.firstname %> <%= application.user.lastname %>
-  </h2>
-  <p>
-    Quote: $ <%= application.quote %>
-  </p>
-  <p>
-    Start Date: <%= application.start_date %>
-  </p>
-  <p>
-    Description: <%= application.comment %>
-  </p>
-  <p>
-    Duration: <%= application.estimated_duration %>
-  </p>
-  <p>
-    Selected?: <%= application.selected? %>
-  </p>
-  <%= link_to 'Select this application', select_application_path(application,@project) %>
-  <% end %>
-</div>
+
+<% @applications.each do |application| %>
+  <div class="card">
+    <h2>
+      Name: <%= application.user.firstname %> <%= application.user.lastname %>
+    </h2>
+    <p>
+      Quote: $ <%= application.quote %>
+    </p>
+    <p>
+      Start Date: <%= application.start_date %>
+    </p>
+    <p>
+      Description: <%= application.comment %>
+    </p>
+    <p>
+      Duration: <%= application.estimated_duration %>
+    </p>
+    <p>
+      Selected?: <%= application.selected? %>
+    </p>
+    <% unless application.selected %>
+    <%= link_to 'Select this application', select_application_path(application,@project) %>
+    <% end %>
+  </div>
+<% end %>
+
 
