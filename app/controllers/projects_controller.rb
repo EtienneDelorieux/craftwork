@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
+    @user = @project.user
   end
 
   def edit

@@ -1,2 +1,20 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1>Add yopu review</h1>
+<br>
+<p>Add a rating and a content to evaluate this merchant</p>
+
+<%= simple_form_for(@review) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :content %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :rating %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Submit", class: "btn btn--primary" %>
+  </div>
+<% end %>
+
