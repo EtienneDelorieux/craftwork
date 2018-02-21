@@ -31,6 +31,9 @@ h1 {
   margin-bottom: 50px;
 }
 
+h2 {
+}
+
 a {
   color: $primary-color;
   transition: $transition;
@@ -39,6 +42,11 @@ a {
     color: adjust-color($primary-color, $saturation: 10, $lightness: 5);
     text-decoration: none;
   }
+}
+
+button,
+input[type="submit"] {
+  transition: $transition;
 }
 
 section {

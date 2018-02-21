@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -44,6 +43,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :content, :category_id, :city)
+    params.require(:project).permit(:title, :content, :category_id, :city, :photo)
   end
 end

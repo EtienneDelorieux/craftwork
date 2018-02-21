@@ -1,6 +1,14 @@
 <%= link_to(project_path(project), class: "project__card") do %>
-  <h2 class="project__name"><%= project.title %></h2>
-  <p><%= "#{project.user.firstname} #{project.user.lastname}" %></p>
-  <p><%= project.city %></p>
-  <p><%= project.category.name %></p>
+  <div class="project__card__body" style="background-image: url(<%= project_image_path_for(project) %>)">
+    <h2 class="project__card__title"><%= project.title %></h2>
+    <span class="project__card__user">
+      <%= image_tag "http://kitt.lewagon.com/placeholder/users/alexandrebk", class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <%= "#{project.user.firstname.capitalize} #{project.user.lastname}" %>
+    </span>
+    <span class="project__card__filter"></span>
+  </div>
+  <div class="project__card__footer">
+    <p class="project__card__category"><%= project.category.name %></p>
+    <p class="project__card__city"><%= project.city %></p>
+  </div>
 <% end %>
