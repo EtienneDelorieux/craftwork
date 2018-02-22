@@ -1,0 +1,35 @@
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  color: #fff;
+
+  i {
+    margin-right: 5px;
+    color: #fff;
+  }
+
+  &:hover {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+}
+
+.btn--primary {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: adjust-color($primary-color, $saturation: 10, $lightness: 5);
+    box-shadow: 0 7px 20px -3px rgba(159, 62, 0, 0.35);
+  }
+}
+
+.btn--secondary {
+  background-color: $secondary-color;
+
+  &:hover {
+    background-color: adjust-color($secondary-color, $saturation: 10, $lightness: 5);
+    box-shadow: 0 7px 20px -3px rgba(0, 0, 0, 0.25);
+  }
+}

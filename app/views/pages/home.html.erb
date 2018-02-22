@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner banner--home">
+  <div class="container">
+    <div class="banner--home__content">
+      <h1>Your hands are worth a lot</h1>
+      <p>People are looking for crafters like you to fix their home!</p>
+    </div>
+    <span class="banner--home__line"></span>
+  </div>
+</div>
+
+<section class="project__list">
+  <div class="container">
+    <div class="row">
+
+      <% @projects.each do |project| %>
+        <div class="col-lg-6">
+          <%= render "projects/project-card", project: project %>
+        </div>
+      <% end %>
+
+      </div>
+  </div>
+</section>

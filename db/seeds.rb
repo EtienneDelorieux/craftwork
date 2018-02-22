@@ -42,6 +42,18 @@ puts "Creating projects..."
   )
 end
 
+puts "Creating application..."
+20.times do
+  Application.create!(
+    quote: (100..1000).to_a.sample,
+    estimated_duration: (100..1000).to_a.sample,
+    start_date: Date.today,
+    comment: Faker::Hipster.paragraph,
+    user_id: ((User.first.id)..(User.last.id)).to_a.sample,
+    project_id: ((Project.first.id)..(Project.last.id)).to_a.sample
+  )
+end
+
 User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
 
 

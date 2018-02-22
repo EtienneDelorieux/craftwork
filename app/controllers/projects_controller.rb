@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
 
     if @project.save
-      redirect_to projects_path, notice: "Your project was successfuly created!"
+      redirect_to project_path(@project), notice: "Your project was successfuly created!"
     else
       render :new
     end
@@ -23,6 +23,10 @@ class ProjectsController < ApplicationController
   def show
     @user = @project.user
     @review = Review.where(creator_id: @user).first
+    @applications = Application.where(project_id: @project.id).where(selected: true)
+    if @applications.empty?
+      @applications = Application.where(project_id: @project.id)
+    end
   end
 
   def edit
@@ -30,12 +34,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    redirect_to project_path, notice: "Your project was successfuly updated!"
+    redirect_to project_path(@project), notice: "Your project was successfuly updated!"
   end
 
   def destroy
     @project.destroy
-    redirect_to projects_path
+    redirect_to root_path
   end
 
   private
@@ -45,6 +49,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :content, :category_id, :city)
+    params.require(:project).permit(:title, :content, :category_id, :city, :photo)
   end
 end
