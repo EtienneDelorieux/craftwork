@@ -12,6 +12,7 @@ class ApplicationPolicy
 
   def show?
     scope.where(:id => record.id).exists?
+    #scope designe le modele sur lequel on est(Project)
   end
 
   def create?
