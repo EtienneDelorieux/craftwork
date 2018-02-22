@@ -11,6 +11,25 @@
   }
 }
 
+.project__applications.after-selection {
+  .application__card.not-selected {
+    opacity: 0.35;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .application__card.selected {
+    opacity: 1;
+
+    .application__action a {
+      background-color: $green;
+    }
+  }
+}
+
 .application__header {
   display: flex;
   padding: 10px 25px;

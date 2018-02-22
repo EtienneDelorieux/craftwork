@@ -21,7 +21,6 @@ class ApplicationsController < ApplicationController
 
   def select
     @application = Application.find(params[:id])
-    # @project = Project.find(params[:project_id])
     @application.selected = true
     @application.save
     redirect_to project_path(@application.project)
@@ -42,5 +41,3 @@ class ApplicationsController < ApplicationController
   end
 
 end
-
-

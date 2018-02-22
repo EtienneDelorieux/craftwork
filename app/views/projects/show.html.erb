@@ -47,7 +47,7 @@
   </div>
 </section>
 
-<section class="project__applications">
+<section class="project__applications<%= ' after-selection' if @applications.any? { |application| application.selected == true } %>">
   <div class="container">
     <div class="row">
       <% @applications.each do |application| %>

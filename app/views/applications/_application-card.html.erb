@@ -1,4 +1,4 @@
-<div class="application__card">
+<div class="application__card<%= ' selected' if application.selected? %><%= ' not-selected' if application.selected.nil? %>">
   <div class="application__header">
     <div class="application__user">
       <%= image_tag "http://kitt.lewagon.com/placeholder/users/alexandrebk", class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -36,8 +36,10 @@
   </div>
 
   <div class="application__action">
-    <% unless application.selected %>
+    <% if application.selected.nil? %>
       <%= link_to 'Select this application', select_application_path(application, @project) %>
+    <% else %>
+    <%= link_to 'You have selected this application' %>
     <% end %>
   </div>
 </div>
