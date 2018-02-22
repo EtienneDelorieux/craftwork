@@ -1,14 +1,23 @@
-<h1>My profile</h1>
-<br>
-<h2>My informations</h2>
-<div>
-  <p><%= @user.firstname %></p>
-  <p><%= @user.lastname %></p>
-  <p><%= @user.resume %></p>
+<h2><%= @user.firstname %> <%= @user.lastname %></h2>
+
+<p><%= @user.resume %></p>
+
+<% if @reviews.any? %>
+  <h3>Reviews</h3>
+<% else %>
+  <h3>No reviews yet</h3>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6-lg">
+      <div class ="application__card">
+        <% @reviews.each do |review| %>
+          <p><%= review.content %></p>
+          <p><%= review.rating %> étoiles </p>
+          <p><%= review.category.name %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<br>
-
-<h2>Evaluations</h2>
-
-<br>
