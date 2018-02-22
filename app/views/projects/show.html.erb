@@ -18,11 +18,12 @@
       </div>
       <div class="col-lg-4">
         <div class="project__actions">
-          <% if policy(@project).update? %>
+          <% if policy(@application).create? %>
             <%= link_to(new_project_application_path(@project), class: "btn btn--secondary") do %>
               <%= icon('fas', 'pencil-alt') %>Apply
             <% end %>
-          <% elsif policy(@project).update? %>
+          <% end %>
+          <% if policy(@project).update? %>
               <%= link_to(edit_project_path(@project), class: "btn btn--secondary") do %>
                 <%= icon('fas', 'edit') %>Edit
               <% end %>

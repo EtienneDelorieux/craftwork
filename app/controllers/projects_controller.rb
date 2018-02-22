@@ -30,6 +30,8 @@ class ProjectsController < ApplicationController
     if @applications.empty?
       @applications = Application.where(project_id: @project.id)
     end
+    @application = @project.applications.build
+    # @application = Application.new(project: @project)
   end
 
   def edit
