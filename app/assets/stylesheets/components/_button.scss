@@ -4,6 +4,7 @@
   border-radius: $border-radius;
   font-size: 1rem;
   color: #fff;
+  border: none;
 
   i {
     margin-right: 5px;
@@ -29,7 +30,7 @@
   background-color: $secondary-color;
 
   &:hover {
-    background-color: adjust-color($secondary-color, $saturation: 10, $lightness: 5);
+    background-color: adjust-color($secondary-color, $lightness: -10);
     box-shadow: 0 7px 20px -3px rgba(0, 0, 0, 0.25);
   }
 }

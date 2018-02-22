@@ -1,0 +1,107 @@
+.application__card {
+  background-color: #fff;
+  border-radius: $border-radius;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.project__applications.after-selection {
+  .application__card.not-selected {
+    opacity: 0.35;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .application__card.selected {
+    opacity: 1;
+
+    .application__action a {
+      background-color: $green;
+    }
+  }
+}
+
+.application__header {
+  display: flex;
+  padding: 10px 25px;
+}
+
+.application__user {
+  width: 66%;
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 10px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+.application__user__reviews {
+  width: 34%;
+  text-align: center;
+}
+
+.application__message {
+  padding: 25px;
+  background-color: #FAFAFA;
+
+  p:first-child {
+    margin-bottom: 5px;
+  }
+}
+
+.application__info {
+  padding: 10px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  i {
+    color: $secondary-color;
+    margin-right: 5px;
+  }
+}
+
+.application__action a {
+  display: block;
+  padding: 15px 0;
+  border-radius: 0 0 3px 3px;
+  background-color: $secondary-color;
+  color: #fff;
+  text-align: center;
+
+  &:hover {
+    background-color: adjust-color($secondary-color, $lightness: -10);
+  }
+}
+
+.application__user__reviews {
+  a {
+    color: $dark;
+  }
+
+  .fa-star {
+    color: $primary-color;
+  }
+
+  .fa-star.star--empty {
+    opacity: 0.5;
+  }
+}
+
+.review__average {
+  margin-bottom: 5px;
+}

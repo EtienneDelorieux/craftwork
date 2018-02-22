@@ -1,14 +1,19 @@
-<h1>Submit your application</h1>
-<p><%= @project.title%></p>
-<p><%= @project.content %></p>
-<p><%= @project.city %></p>
-<p><%= @project.user.firstname %></p>
+<section class="application__new">
+  <div class="container">
+    <h1>Submit your application</h1>
 
-<%= simple_form_for [@project, @application] do |f| %>
+    <div class="application__new__project__resume">
+      <p> <strong><%= @project.title%></strong></p>
+      <p><%= @project.content %></p>
+    </div>
 
-  <%= f.input :quote %>
-  <%= f.input :estimated_duration %>
-  <%= f.input :comment %>
-  <%= f.input :start_date %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+    <%= simple_form_for [@project, @application] do |f| %>
+
+      <%= f.input :quote %>
+      <%= f.input :estimated_duration %>
+      <%= f.input :comment %>
+      <%= f.input :start_date %>
+      <%= f.submit "Submit", class: "btn btn--primary" %>
+    <% end %>
+  </div>
+</section>

@@ -1,18 +1,55 @@
-<h1>My profile</h1>
+<h2><%= @user.firstname %> <%= @user.lastname %></h2>
+
+<p><%= @user.resume %></p>
+
 <br>
-<h2>My informations</h2>
-<div>
-  <p><%= @user.firstname %></p>
-  <p><%= @user.lastname %></p>
-  <p><%= @user.resume %></p>
+
+<% if @reviews.any? %>
+  <h3>
+    Average ratings:
+    <div class="review__average">
+      <% if average(@user) != 0 %>
+        <% average(@user).times do %>
+          <%= icon('fas star--full', 'star') %>
+        <% end %>
+        <% (5 - average(@user)).times do %>
+          <%= icon('fas star--empty', 'star') %>
+        <% end %>
+      <% else %>
+        <p>No reviews yet</p>
+      <% end %>
+    </div>
+  </h3>
+<% else %>
+  <h3>No reviews yet</h3>
+<% end %>
+
+<br>
+
+<% if @reviews.any? %>
+  <h3>Reviews</h3>
+<% else %>
+  <h3>No reviews yet</h3>
+<% end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-6-lg">
+      <% @reviews.each do |review| %>
+        <div class ="application__card">
+          <p><%= review.content %></p>
+          <p>
+            <% review.rating.times do %>
+              <%= icon('fas star--full', 'star') %>
+            <% end %>
+              <% (5 - review.rating).times do %>
+            <%= icon('fas star--empty', 'star') %>
+            <% end %>
+          </p>
+          <p><%= review.category.name %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<br>
-
-<h2>Evaluations</h2>
-
-<br>
-
-<p>
-  <%= @review.content %>
-</p>
