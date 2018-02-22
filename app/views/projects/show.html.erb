@@ -16,6 +16,7 @@
         <span class="project__details__category"><%= icon('fas', 'tag') %><%= @project.category.name %></span>
         <span class="project__details__city"><%= icon('fas', 'map-marker-alt') %><%= @project.city %></span>
       </div>
+
       <div class="col-lg-4">
         <% if current_user != @user %>
           <%= link_to(new_project_application_path(@project), class: "btn btn--secondary") do %>
@@ -36,51 +37,24 @@
   </div>
 </section>
 
-<section class="project__body">
+<section class="project__description">
   <div class="container">
     <div class="row">
-      <div class="col-lg-10">
+      <div class="col-lg-12">
         <p><%= @project.content %></p>
-      </div>
-      <div class="col-lg-2">
-
       </div>
     </div>
   </div>
 </section>
 
-<% @applications.each do |application| %>
-  <div class="card">
-    <h2>
-      Name: <%= application.user.firstname %> <%= application.user.lastname %>
-    </h2>
-    <p>
-      Quote: $ <%= application.quote %>
-    </p>
-    <p>
-      Start Date: <%= application.start_date %>
-    </p>
-    <p>
-      Description: <%= application.comment %>
-    </p>
-    <p>
-      Duration: <%= application.estimated_duration %>
-    </p>
-    <p>
-      Selected?: <%= application.selected? %>
-    </p>
-    <% unless application.selected %>
-    <%= link_to 'Select this application', select_application_path(application,@project) %>
-    <% end %>
+<section class="project__applications">
+  <div class="container">
+    <div class="row">
+      <% @applications.each do |application| %>
+        <div class="col-lg-6">
+          <%= render "applications/application-card", application: application %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-<div>
-  <% if @review != nil %>
-    <br>
-    <h2>You added a review</h2>
-    <br>
-    <p><%= @review.content %></p>
-    <p><%= @review.destinator.firstname %></p>
-  <% end %>
-</div>
+</section>

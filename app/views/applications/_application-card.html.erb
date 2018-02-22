@@ -1,0 +1,43 @@
+<div class="application__card">
+  <div class="application__header">
+    <div class="application__user">
+      <%= image_tag "http://kitt.lewagon.com/placeholder/users/alexandrebk", class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <h2><%= application.user.firstname %> <%= application.user.lastname %></h2>
+    </div>
+
+    <div class="application__user__reviews">
+      <div class="review__average">
+        <% if average(application.user) != 0 %>
+          <% average(application.user).times do %>
+            <%= icon('fas star--full', 'star') %>
+          <% end %>
+          <% (5 - average(application.user)).times do %>
+            <%= icon('fas star--empty', 'star') %>
+          <% end %>
+          <%= link_to(user_path(application.user)) do %>
+            See <%= application.user.firstname %>'s reviews
+          <% end %>
+        <% else %>
+          <p>No reviews yet</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="application__message">
+    <p><strong>Message from the appliant:</strong></p>
+    <p><%= application.comment %></p>
+  </div>
+
+  <div class="application__info">
+    <p><%= icon('fas', 'euro-sign ') %><%= application.quote %></p>
+    <p><%= icon('fas', 'calendar-alt') %><%= application.start_date %></p>
+    <p><%= icon('fas', 'hourglass-start') %><%= application.estimated_duration %></p>
+  </div>
+
+  <div class="application__action">
+    <% unless application.selected %>
+      <%= link_to 'Select this application', select_application_path(application, @project) %>
+    <% end %>
+  </div>
+</div>
