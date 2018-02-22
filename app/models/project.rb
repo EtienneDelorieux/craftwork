@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :applications
+  has_many :applications, dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true
