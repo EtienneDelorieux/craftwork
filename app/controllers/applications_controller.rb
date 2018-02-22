@@ -4,7 +4,8 @@ class ApplicationsController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
-    @application = Application.new
+    @application = Application.new(project: @project)
+    authorize @application
   end
 
   def create
@@ -12,6 +13,7 @@ class ApplicationsController < ApplicationController
     @project = Project.find(params[:project_id])
     @application.project = @project
     @application.user = current_user
+    authorize @application
     if @application.save
       redirect_to project_path(@project)
     else
