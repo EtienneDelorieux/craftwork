@@ -21,6 +21,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @user = @project.user
+    @review = Review.where(creator_id: @user).first
     @applications = Application.where(project_id: @project.id).where(selected: true)
     if @applications.empty?
       @applications = Application.where(project_id: @project.id)

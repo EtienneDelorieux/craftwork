@@ -1,3 +1,4 @@
+
 <div class="banner project__banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= project_image_path_for(@project) %>)">
   <div class="container">
     <h1 class="project__title"><%= @project.title %></h1>
@@ -26,6 +27,15 @@
       <div class="col-lg-2">
         <%= link_to(new_project_application_path(@project), class: "btn btn--secondary") do %>
           <%= icon('fas', 'pencil-alt') %>Apply
+        <% end %>
+        <% if current_user != @user %>
+          <%= link_to(new_project_application_path(@project), class: "btn btn--secondary") do %>
+            <%= icon('fas', 'pencil-alt') %>Apply
+          <% end %>
+        <% elsif current_user == @user %>
+          <%= link_to(new_project_reviewn_path(@project), class: "btn btn--secondary") do %>
+            <%= icon('fas', 'pencil-alt') %>Add a review
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -70,3 +80,13 @@
     <% end %>
   </div>
 <% end %>
+
+<div>
+  <% if @review != nil %>
+    <br>
+    <h2>You added a review</h2>
+    <br>
+    <p><%= @review.content %></p>
+    <p><%= @review.destinator.firstname %></p>
+  <% end %>
+</div>
