@@ -68,3 +68,21 @@
     background-color: adjust-color($secondary-color, $lightness: -10);
   }
 }
+
+.application__user__reviews {
+  a {
+    color: $dark;
+  }
+
+  .fa-star {
+    color: $primary-color;
+  }
+
+  .fa-star.star--empty {
+    opacity: 0.5;
+  }
+}
+
+.review__average {
+  margin-bottom: 5px;
+}
