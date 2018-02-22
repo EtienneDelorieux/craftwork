@@ -66,6 +66,10 @@ h1.project__title {
   }
 }
 
-.project__details .btn {
-  width: 100%;
+.project__details .btn--secondary {
+  float: right;
+}
+
+.project__applications {
+  padding-top: 0;
 }
