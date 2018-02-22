@@ -31,6 +31,8 @@ puts "Creating users..."
   )
 end
 
+User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
+
 puts "Creating projects..."
 10.times do
   Project.create!(
@@ -54,8 +56,6 @@ puts "Creating application..."
   )
 end
 
-User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
-
 Application.create!(
   quote: (100..1000).to_a.sample,
   estimated_duration: (100..1000).to_a.sample,
@@ -66,13 +66,13 @@ Application.create!(
   selected: true
 )
 
-puts "Creating review..."
-Review.create!(
-  rating: (1..5).to_a.sample,
-  content: "c'était super",
-  category_id: ((Category.first.id)..(Category.last.id)).to_a.sample,
-  destinator_id: ((User.first.id)..(User.last.id)).to_a.sample,
-  creator_id: ((User.first.id)..(User.last.id)).to_a.sample
-)
-
-
+puts "Creating reviews..."
+20.times do
+  Review.create!(
+    rating: (1..5).to_a.sample,
+    content: "c'était super",
+    category_id: ((Category.first.id)..(Category.last.id)).to_a.sample,
+    destinator_id: ((User.first.id)..(User.last.id)).to_a.sample,
+    creator_id: ((User.first.id)..(User.last.id)).to_a.sample
+  )
+end

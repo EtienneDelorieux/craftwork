@@ -1,9 +1,9 @@
 module ApplicationHelper
   def average(user)
     if !user.reviews.empty?
-      @stars = []
-      user.reviews.each { |review| @stars << review.stars }
-      @stars.inject(&:+) / @stars.size
+      @rating = []
+      user.reviews.each { |review| @rating << review.rating }
+      @rating.inject(&:+) / @rating.size
     else
       0
     end

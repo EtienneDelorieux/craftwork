@@ -6,21 +6,21 @@
     </div>
 
     <div class="application__user__reviews">
-      <div class="review__average">
         <% if average(application.user) != 0 %>
-          <% average(application.user).times do %>
-            <%= icon('fas star--full', 'star') %>
-          <% end %>
-          <% (5 - average(application.user)).times do %>
-            <%= icon('fas star--empty', 'star') %>
-          <% end %>
+          <div class="review__average">
+            <% average(application.user).times do %>
+              <%= icon('fas star--full', 'star') %>
+            <% end %>
+            <% (5 - average(application.user)).times do %>
+              <%= icon('fas star--empty', 'star') %>
+            <% end %>
+          </div>
           <%= link_to(user_path(application.user)) do %>
             See <%= application.user.firstname %>'s reviews
           <% end %>
         <% else %>
           <p>No reviews yet</p>
         <% end %>
-      </div>
     </div>
   </div>
 
