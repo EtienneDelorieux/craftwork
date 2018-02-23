@@ -36,7 +36,7 @@
   </div>
 
   <div class="application__action">
-    <% if application.selected.nil? && current_user == @user %>
+    <% if policy(application).select? %>
       <%= link_to 'Select this application', select_application_path(application, @project) %>
     <% end %>
   </div>
