@@ -1,20 +1,23 @@
-<h1>Add you review</h1>
-<br>
-<p>Add a rating and a content to evaluate this merchant</p>
+<section>
+  <div class="container">
+    <h1>Add you review</h1>
+    <br>
+    <p>Add a rating and a content to evaluate this merchant</p>
 
-<%= simple_form_for([@project, @review]) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for([@project, @review]) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :content %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :content %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :rating %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :rating %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.submit "Submit", class: "btn btn--primary" %>
-  </div>
-<% end %>
-
+      <div class="form-actions">
+        <%= f.submit "Submit", class: "btn btn--primary" %>
+      </div>
+    <% end %>
+</div>
+</section>
