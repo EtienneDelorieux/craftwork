@@ -5,3 +5,16 @@
 .fa-star.star--empty {
   opacity: 0.5;
 }
+
+.profile__reviews {
+  padding-top: 0;
+
+  .application__card {
+    text-align: center;
+    padding: 25px;
+  }
+
+  .profile__reviews__content {
+    margin: 10px 0;
+  }
+}
