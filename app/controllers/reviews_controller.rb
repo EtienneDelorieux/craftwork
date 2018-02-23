@@ -1,13 +1,14 @@
 class ReviewsController < ApplicationController
 
-  before_action :set_review, only: [:new, :create]
+  before_action :set_review, only: [:new]
 
   def new
-    @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     if @review.save
       redirect_to project_path(@project)
     else
@@ -23,6 +24,7 @@ private
   end
 
   def set_review
+    @review = Review.new
     @project = Project.find(params[:project_id])
     @application = Application.where(project_id: params[:project_id]).where(selected: true).first
     @review.category = @project.category
