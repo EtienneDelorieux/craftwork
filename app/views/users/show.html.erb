@@ -1,55 +1,52 @@
-<h2><%= @user.firstname %> <%= @user.lastname %></h2>
-
-<p><%= @user.resume %></p>
-
-<br>
-
-<% if @reviews.any? %>
-  <h3>
-    Average ratings:
-    <div class="review__average">
-      <% if average(@user) != 0 %>
-        <% average(@user).times do %>
-          <%= icon('fas star--full', 'star') %>
-        <% end %>
-        <% (5 - average(@user)).times do %>
-          <%= icon('fas star--empty', 'star') %>
-        <% end %>
+<section>
+  <div class="container">
+      <h1><%= @user.firstname %> <%= @user.lastname %></h1>
+      <p><%= @user.resume %></p>
+      <% if @reviews.any? %>
+        <h2>Reviews</h2>
       <% else %>
-        <p>No reviews yet</p>
+        <h2>No reviews yet</h2>
       <% end %>
-    </div>
-  </h3>
-<% else %>
-  <h3>No reviews yet</h3>
-<% end %>
+      <br>
+      <% if @reviews.any? %>
+        <h3>Average ratings:</h3>
+          <div class="review__average">
+            <% if average(@user) != 0 %>
+              <% average(@user).times do %>
+                <%= icon('fas star--full', 'star') %>
+              <% end %>
+              <% (5 - average(@user)).times do %>
+                <%= icon('fas star--empty', 'star') %>
+              <% end %>
+            <% else %>
+              <p>No reviews yet</p>
+            <% end %>
+          </div>
+      <% else %>
+        <h3>No reviews yet</h3>
+      <% end %>
+  </div>
+</section>
 
-<br>
-
-<% if @reviews.any? %>
-  <h3>Reviews</h3>
-<% else %>
-  <h3>No reviews yet</h3>
-<% end %>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-6-lg">
+<section class="profile__reviews">
+  <div class="container">
+    <div class="row">
       <% @reviews.each do |review| %>
-        <div class ="application__card">
-          <p><%= review.content %></p>
-          <p>
-            <% review.rating.times do %>
-              <%= icon('fas star--full', 'star') %>
-            <% end %>
-              <% (5 - review.rating).times do %>
-            <%= icon('fas star--empty', 'star') %>
-            <% end %>
-          </p>
-          <p><%= review.category.name %></p>
+        <div class="col-lg-4">
+          <div class ="application__card">
+            <p>
+              <% review.rating.times do %>
+                <%= icon('fas star--full', 'star') %>
+              <% end %>
+                <% (5 - review.rating).times do %>
+              <%= icon('fas star--empty', 'star') %>
+              <% end %>
+            </p>
+            <p class="profile__reviews__content"><strong><%= review.content %></strong></p>
+            <p><%= review.category.name %></p>
+          </div>
         </div>
       <% end %>
     </div>
   </div>
-</div>
+</section>
