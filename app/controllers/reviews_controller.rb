@@ -25,7 +25,7 @@ private
   def set_review
     @project = Project.find(params[:project_id])
     @application = Application.where(project_id: params[:project_id]).where(selected: true).first
-    @review.category = @project.category
+    # @review.category = @project.category
     @review.destinator = @application.user
     @review.creator = @project.user
   end
