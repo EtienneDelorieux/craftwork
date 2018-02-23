@@ -8,4 +8,15 @@ class SubmissionPolicy < ApplicationPolicy
   def create?
     record.project.user != @user #all users can create projects
   end
+
+  def select?
+    ap "je suis dans selct"
+    ap user_is_owner?
+    user_is_owner?
+  end
+
+  def user_is_owner?
+    @record.user == @user
+  end
+
 end

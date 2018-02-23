@@ -26,6 +26,7 @@ class ApplicationsController < ApplicationController
     @application.selected = true
     @application.save
     redirect_to project_path(@application.project)
+
   end
 
   def application_params
