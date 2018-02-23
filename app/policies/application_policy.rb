@@ -19,9 +19,10 @@ class ApplicationPolicy
     false
   end
 
-  def new?
-    create?
-  end
+  # def new?
+  #   ap "hey hey"
+  #   create?
+  # end
 
   def update?
     false
