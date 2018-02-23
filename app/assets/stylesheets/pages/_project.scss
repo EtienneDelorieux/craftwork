@@ -15,24 +15,9 @@ h1.project__title {
   font-size: 3rem;
 }
 
-.project__actions {
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
-
-  .btn {
-    color: $dark;
-    background-color: rgba(255, 255, 255, 0.85);
-    margin-left: 15px;
-
-    i {
-      color: $dark;
-    }
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 1);
-    }
-  }
+.project__actions .btn {
+  margin-left: 15px;
+  float: right;
 }
 
 .project__details {
@@ -64,10 +49,6 @@ h1.project__title {
     margin-right: 5px;
     color: $secondary-color;
   }
-}
-
-.project__details .btn--secondary {
-  float: right;
 }
 
 .project__applications {

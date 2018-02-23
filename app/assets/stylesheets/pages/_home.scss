@@ -22,6 +22,16 @@
 .banner--home p {
   font-weight: 300;
   font-size: 1.5rem;
+  margin-bottom: 70px;
+}
+
+.banner--home .form-control {
+  border: none;
+  border-radius: $border-radius;
+  height: 50px;
+  font-size: 1.25rem;
+  width: 33%;
+  margin: 0 auto;
 }
 
 .banner--home__line {
