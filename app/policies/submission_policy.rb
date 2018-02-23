@@ -5,6 +5,11 @@ class SubmissionPolicy < ApplicationPolicy
     end
   end
 
+
+  def new?
+    true
+  end
+
   def create?
     record.project.user != @user #all users can create projects
   end

@@ -5,6 +5,10 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    true
+  end
+
   def show
     true #all users can see the projects
   end
