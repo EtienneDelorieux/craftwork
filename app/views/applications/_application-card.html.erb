@@ -37,7 +37,13 @@
 
   <div class="application__action">
     <% if policy(application).select? %>
-      <%= link_to 'Select this application', select_application_path(application, @project) %>
+      <% if application.selected == true %>
+        <%= link_to new_project_review_path(@project), class: "add-review" do %>
+          <%= "Leave a review to #{application.user.firstname}" %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Select this application', select_application_path(application, @project) %>
+      <% end %>
     <% end %>
   </div>
 </div>
