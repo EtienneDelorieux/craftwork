@@ -31,7 +31,10 @@ puts "Creating users..."
   )
 end
 
-User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
+
+louis = User.create!({:email => "louis@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "louis", :lastname => "Delon"})
+alex = User.create!({:email => "hello@gmail.com", :password => "aaaaaa", :password_confirmation => "aaaaaa", :firstname => "alex", :lastname => "Bouvier"})
+
 
 puts "Creating projects..."
 10.times do
@@ -44,6 +47,14 @@ puts "Creating projects..."
   )
 end
 
+project = Project.create!({:title => "projet de louis",
+                 :content => "je fais un test",
+                 :city => "lyon",
+                 :category_id => ((Category.first.id)..(Category.last.id)).to_a.sample,
+                 :user => louis
+                 })
+
+
 puts "Creating application..."
 20.times do
   Application.create!(
@@ -55,6 +66,15 @@ puts "Creating application..."
     project_id: ((Project.first.id)..(Project.last.id)).to_a.sample
   )
 end
+
+Application.create!(
+    quote: (100..1000).to_a.sample,
+    estimated_duration: (100..1000).to_a.sample,
+    start_date: Date.today,
+    comment: "c'est pour tester",
+    user_id: alex.id,
+    project_id: project.id,
+  )
 
 Application.create!(
   quote: (100..1000).to_a.sample,

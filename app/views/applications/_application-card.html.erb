@@ -36,10 +36,8 @@
   </div>
 
   <div class="application__action">
-    <% if application.selected.nil? %>
+    <% if application.selected.nil? && current_user == @user %>
       <%= link_to 'Select this application', select_application_path(application, @project) %>
-    <% else %>
-    <%= link_to 'You have selected this application' %>
     <% end %>
   </div>
 </div>
