@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
 
-  before_action :set_review, only: [:new, :create]
+  before_action :set_review, only: [:new]
 
   def new
-    @review = Review.new
   end
 
   def create
@@ -23,9 +22,10 @@ private
   end
 
   def set_review
+    @review = Review.new
     @project = Project.find(params[:project_id])
     @application = Application.where(project_id: params[:project_id]).where(selected: true).first
-    # @review.category = @project.category
+    @review.category = @project.category
     @review.destinator = @application.user
     @review.creator = @project.user
   end
