@@ -16,7 +16,7 @@ class SubmissionPolicy < ApplicationPolicy
   end
 
   def user_is_owner?
-    @record.user == @user
+    @record.project.user == @user
   end
 
 end

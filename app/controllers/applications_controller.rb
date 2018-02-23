@@ -25,6 +25,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @application.selected = true
     @application.save
+    authorize @application
     redirect_to project_path(@application.project)
 
   end
