@@ -3,12 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if params[:query].present?
-      sql_query = " \
-        projects.title @@ :query \
-        OR projects.content @@ :query \
-        OR categories.name @@ :query \
-      "
-      @projects = Project.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+      @projects = Project.global_search(params[:query])
     else
       @projects = Project.all
     end
