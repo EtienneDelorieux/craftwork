@@ -39,10 +39,10 @@
         </div>
       </div>
 
-      <div class="navbar-wagon-item">
+      <span>
         <%= current_user.firstname.capitalize %>
         <%= current_user.lastname.capitalize %>
-      </div>
+      </span>
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_up", default: "Create an account"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
