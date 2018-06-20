@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
   def index
     @project = policy_scope(Project)
     # @projects = Project.all => on reporte la responsabilité de
-    # l'authorisation dans le le policy controller
   end
 
   def show
@@ -46,12 +45,12 @@ class ProjectsController < ApplicationController
 
   private
 
+  def project_params
+    params.require(:project).permit(:title, :content, :category_id, :city, :photo)
+  end
+
   def set_project
     @project = Project.find(params[:id])
     authorize @project
-  end
-
-  def project_params
-    params.require(:project).permit(:title, :content, :category_id, :city, :photo)
   end
 end
